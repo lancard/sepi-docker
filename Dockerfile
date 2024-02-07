@@ -15,9 +15,9 @@ RUN cp gdrive /sbin
 
 RUN useradd -ms /bin/bash ubuntu
 USER ubuntu
-WORKDIR /home/ubuntu
-RUN echo "0 1 * * * tar czf /home/ubuntu/sepi/backup/love.tar.gz /home" > crontab.txt
-RUN echo "0 2 * * * gdrive sync upload ~/backup 1HRPcR2MNWfTbX8kkI6TudE1uwwaV6A8k --no-progress" >> crontab.txt
+WORKDIR /home/ubuntu/sepi
+RUN echo "0 1 * * * /home/ubuntu/sepi/backscr" > crontab.txt
+RUN echo "0 2 * * * gdrive sync upload ~/backup 1ex4jRda3GwI9G7pH2exOKXpb7GTUZujx --no-progress" >> crontab.txt
 RUN echo "0 3 * * * apt-get update && apt-get upgrade -y" >> crontab.txt
 RUN cat crontab.txt | crontab -
 
