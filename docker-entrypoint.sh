@@ -3,4 +3,4 @@
 service cron start
 service ssh start
 
-cd /sepi && nohup ./sepiscr &
+cd /sepi && ./sepiscr
