@@ -21,4 +21,6 @@ RUN echo "0 2 * * * cd /home/ubuntu/sepi && gdrive sync upload ~/backup 1ex4jRda
 RUN echo "0 3 * * * apt-get update && apt-get upgrade -y" >> crontab.txt
 RUN cat crontab.txt | crontab -
 
-ENTRYPOINT ["./sepiscr"]
+COPY --chmod=755 docker-entrypoint.sh /
+
+ENTRYPOINT /docker-entrypoint.sh
